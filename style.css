@@ -455,8 +455,8 @@ h1 span {
 .hobby-gaming:hover {
     transform: translateY(-10px);
     border-color: var(--accent-color);
-    background: transparent !important; /* Remove black background */
-    color: var(--text-color); /* Revert text color for visibility */
+    background: red !important; /* TEST */
+    color: white;
 }
 
 .hobby-gaming:hover p {
