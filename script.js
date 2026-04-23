@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
             lastY = carY;
         }
 
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.003)'; // Even slower fade (from 0.005 to 0.003)
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.02)'; // Faster fade (from 0.003 to 0.02)
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
         requestAnimationFrame(animate);
