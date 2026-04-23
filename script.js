@@ -26,11 +26,11 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     elementsToReveal.forEach(selector => {
-        const el = document.querySelector(selector);
-        if (el) {
+        const elements = document.querySelectorAll(selector);
+        elements.forEach(el => {
             el.classList.add('reveal');
             observer.observe(el);
-        }
+        });
     });
 
     // Smooth scroll for nav links

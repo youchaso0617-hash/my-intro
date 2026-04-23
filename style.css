@@ -309,6 +309,8 @@ h1 span {
     border: 1px solid #eee;
     padding: 15px;
     background: white;
+    max-width: 500px; /* Reduced from 100% */
+    margin: 0 auto;
 }
 
 .sketch-img {
