@@ -4,7 +4,7 @@
     --accent-color: #00d2ff;
     --secondary-accent: #ff007f;
     --pencil-gray: #4a4a4a;
-    --grid-color: rgba(0, 0, 0, 0.03);
+    --grid-color: rgba(0, 0, 0, 0.05);
     --glass-bg: rgba(255, 255, 255, 0.9);
     --shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
 }
@@ -33,9 +33,20 @@ body {
     height: 100%;
     background-image: linear-gradient(var(--grid-color) 1px, transparent 1px),
                       linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
-    background-size: 40px 40px;
+    background-size: 50px 50px;
     pointer-events: none;
     z-index: -1;
+}
+
+.background-grid::after {
+    content: 'NOMURA_DESIGN_LOG_v1.0.4';
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    color: rgba(0,0,0,0.1);
+    letter-spacing: 5px;
 }
 
 .technical-overlay .line {
@@ -46,25 +57,25 @@ body {
 
 .line.vertical { width: 1px; height: 100%; top: 0; }
 .line.horizontal { height: 1px; width: 100%; left: 0; }
-.line.left { left: 10%; }
-.line.right { right: 10%; }
-.line.top { top: 15%; }
+.line.left { left: 5%; }
+.line.right { right: 5%; }
+.line.top { top: 10%; }
 
 .container {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 3rem;
 }
 
 /* Header */
 header {
-    padding: 2rem 0;
+    padding: 2.5rem 0;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(15px);
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
@@ -72,21 +83,18 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 2rem;
 }
 
 .logo {
     font-family: 'Space Mono', monospace;
     font-weight: 700;
-    font-size: 1.2rem;
-    letter-spacing: 2px;
+    font-size: 1.4rem;
+    letter-spacing: 3px;
 }
 
 .logo span {
     font-weight: 400;
-    opacity: 0.5;
+    opacity: 0.4;
 }
 
 nav ul {
@@ -95,109 +103,125 @@ nav ul {
 }
 
 nav ul li {
-    margin-left: 2.5rem;
+    margin-left: 3rem;
 }
 
 nav ul li a {
     text-decoration: none;
     color: var(--text-color);
     font-family: 'Space Mono', monospace;
-    font-size: 0.9rem;
+    font-size: 1rem;
     text-transform: uppercase;
-    transition: color 0.3s;
+    transition: all 0.3s;
 }
 
 nav ul li a:hover {
     color: var(--accent-color);
+    letter-spacing: 2px;
 }
 
 /* Sections */
 section {
-    padding: 12rem 0;
-    min-height: 90vh;
-}
-
-.section-header {
-    margin-bottom: 4rem;
-}
-
-.label {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.8rem;
-    color: var(--accent-color);
-    display: block;
-    margin-bottom: 0.5rem;
-}
-
-h2 {
-    font-size: 3rem;
-    font-weight: 700;
-}
-
-/* Hero */
-#hero {
+    padding: 15rem 0;
+    min-height: 100vh;
     display: flex;
     align-items: center;
 }
 
+.section-header {
+    margin-bottom: 6rem;
+    position: relative;
+}
+
+.section-header::before {
+    content: '';
+    position: absolute;
+    left: -50px;
+    top: 50%;
+    width: 40px;
+    height: 1px;
+    background: var(--accent-color);
+}
+
+.label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    display: block;
+    margin-bottom: 1rem;
+    letter-spacing: 5px;
+}
+
+h2 {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+/* Hero */
+#hero {
+    padding-top: 20rem;
+}
+
 .hero-layout {
-    display: flex;
-    justify-content: center;
+    width: 100%;
 }
 
 .hero-content {
     text-align: center;
-    max-width: 800px;
 }
 
 .profile-frame {
-    width: 320px;
-    height: 320px;
-    margin: 0 auto 4rem;
+    width: 400px;
+    height: 400px;
+    margin: 0 auto 5rem;
     position: relative;
-    border: 1px solid #ddd;
-    padding: 20px;
+    border: 1px solid #eee;
+    padding: 25px;
+    background: white;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.05);
 }
 
 .profile-frame::before {
     content: '';
     position: absolute;
-    top: -10px; left: -10px; width: 30px; height: 30px;
-    border-top: 2px solid var(--accent-color);
-    border-left: 2px solid var(--accent-color);
+    top: -15px; left: -15px; width: 40px; height: 40px;
+    border-top: 3px solid var(--accent-color);
+    border-left: 3px solid var(--accent-color);
 }
 
 .profile-frame::after {
     content: '';
     position: absolute;
-    bottom: -10px; right: -10px; width: 30px; height: 30px;
-    border-bottom: 2px solid var(--secondary-accent);
-    border-right: 2px solid var(--secondary-accent);
+    bottom: -15px; right: -15px; width: 40px; height: 40px;
+    border-bottom: 3px solid var(--secondary-accent);
+    border-right: 3px solid var(--secondary-accent);
 }
 
 .frame-tag {
     position: absolute;
-    bottom: 10px;
-    right: 10px;
+    bottom: 15px;
+    right: 15px;
     font-family: 'Space Mono', monospace;
-    font-size: 0.6rem;
-    background: white;
-    padding: 2px 5px;
+    font-size: 0.7rem;
+    background: var(--text-color);
+    color: white;
+    padding: 3px 8px;
 }
 
 .profile-name-plate {
     position: absolute;
     top: 50%;
-    left: -40px;
+    left: -60px;
     transform: translateY(-50%) rotate(-90deg);
     background: var(--text-color);
     color: white;
     font-family: 'Space Mono', monospace;
-    font-size: 0.8rem;
+    font-size: 1rem;
     font-weight: 700;
-    padding: 5px 15px;
-    letter-spacing: 3px;
-    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.2);
+    padding: 8px 25px;
+    letter-spacing: 5px;
+    box-shadow: 15px 0 40px rgba(0, 0, 0, 0.15);
 }
 
 .profile-img {
@@ -207,9 +231,10 @@ h2 {
 }
 
 h1 {
-    font-size: 5rem;
-    margin-bottom: 1rem;
+    font-size: 7rem;
+    margin-bottom: 1.5rem;
     line-height: 1;
+    font-weight: 700;
 }
 
 h1 span {
@@ -217,36 +242,38 @@ h1 span {
 }
 
 .subtitle {
-    font-size: 1.8rem;
-    color: #666;
-    margin-bottom: 3rem;
+    font-size: 2rem;
+    color: #777;
+    margin-bottom: 1rem;
+    font-weight: 300;
 }
 
 .hero-stats {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    max-width: 400px;
-    margin: 0 auto;
+    gap: 2rem;
+    max-width: 500px;
+    margin: 4rem auto 0;
 }
 
 .stat {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 2rem;
 }
 
 .stat span {
     font-family: 'Space Mono', monospace;
-    font-size: 0.7rem;
-    width: 60px;
+    font-size: 0.9rem;
+    width: 80px;
     text-align: left;
+    color: #999;
 }
 
 .bar {
     flex-grow: 1;
-    height: 4px;
-    background: #eee;
+    height: 2px;
+    background: #f0f0f0;
     position: relative;
 }
 
@@ -261,33 +288,39 @@ h1 span {
 /* About Grid */
 .about-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: start;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 6rem;
+    align-items: center;
+}
+
+.about-grid p {
+    font-size: 1.5rem;
+    color: #444;
 }
 
 .spec-list {
-    margin-top: 2rem;
+    margin-top: 3rem;
     list-style: none;
 }
 
 .spec-list li {
     display: flex;
     justify-content: space-between;
-    padding: 0.8rem 0;
+    padding: 1.2rem 0;
     border-bottom: 1px solid #eee;
     font-family: 'Space Mono', monospace;
-    font-size: 0.8rem;
+    font-size: 1rem;
 }
 
 .spec-list li span {
-    color: #999;
+    color: var(--accent-color);
 }
 
 .sketch-visual {
     position: relative;
-    border: 1px solid #ddd;
-    padding: 15px;
+    border: 1px solid #eee;
+    padding: 20px;
+    background: white;
 }
 
 .sketch-img {
@@ -297,50 +330,67 @@ h1 span {
 
 .sketch-annotation {
     position: absolute;
-    top: 20px;
-    left: 20px;
-    background: rgba(0, 0, 0, 0.8);
+    top: 30px;
+    left: 30px;
+    background: var(--text-color);
     color: white;
     font-family: 'Space Mono', monospace;
-    font-size: 0.6rem;
-    padding: 2px 8px;
+    font-size: 0.7rem;
+    padding: 4px 12px;
 }
 
 /* Cards */
 .card {
-    padding: 3rem;
+    padding: 4rem;
     background: white;
     border: 1px solid #eee;
     box-shadow: var(--shadow);
+    transition: all 0.4s ease;
 }
 
 .hobbies-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 3rem;
 }
 
 .hobby-item {
-    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
 }
 
 .hobby-item:hover {
-    transform: translateY(-10px);
+    transform: translateY(-15px);
+    border-color: var(--accent-color);
 }
 
 .hobby-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
 }
 
 .hobby-item h3 {
-    margin-bottom: 1rem;
-    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+.hobby-item p {
+    color: #666;
+    font-size: 1.1rem;
 }
 
 /* Vision */
+#vision .card {
+    max-width: 900px;
+}
+
+#vision p {
+    font-size: 1.8rem;
+    margin-bottom: 3rem;
+}
+
 .vision-footer {
-    margin-top: 3rem;
+    margin-top: 5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -348,19 +398,20 @@ h1 span {
 
 .challenge {
     font-family: 'Architects Daughter', cursive;
-    font-size: 1.5rem;
-    color: #888;
+    font-size: 2rem;
+    color: #aaa;
 }
 
 .signature {
     font-family: 'Architects Daughter', cursive;
-    font-size: 2rem;
+    font-size: 3rem;
     transform: rotate(-5deg);
+    color: var(--text-color);
 }
 
 /* Footer */
 footer {
-    padding: 6rem 0;
+    padding: 8rem 0;
     border-top: 1px solid #eee;
 }
 
@@ -369,19 +420,20 @@ footer {
     justify-content: space-between;
     align-items: center;
     font-family: 'Space Mono', monospace;
-    font-size: 0.8rem;
-    color: #999;
+    font-size: 1rem;
+    color: #aaa;
 }
 
 .footer-logo {
     color: var(--text-color);
+    font-size: 1.2rem;
 }
 
 /* Animations */
 .reveal {
     opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease-out;
+    transform: translateY(50px);
+    transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .reveal.active {
@@ -389,8 +441,15 @@ footer {
     transform: translateY(0);
 }
 
-@media (max-width: 900px) {
-    h1 { font-size: 3.5rem; }
-    .about-grid, .hobbies-grid { grid-template-columns: 1fr; }
-    .profile-frame { width: 240px; height: 240px; }
+@media (max-width: 1024px) {
+    h1 { font-size: 5rem; }
+    h2 { font-size: 3rem; }
+    .about-grid { grid-template-columns: 1fr; }
+    .profile-frame { width: 300px; height: 300px; }
+}
+
+@media (max-width: 768px) {
+    h1 { font-size: 4rem; }
+    .subtitle { font-size: 1.5rem; }
+    .container { padding: 0 2rem; }
 }
