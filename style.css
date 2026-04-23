@@ -49,6 +49,41 @@ body {
     letter-spacing: 5px;
 }
 
+.toy-minicar {
+    position: fixed;
+    bottom: 40px;
+    left: -100px;
+    width: 60px;
+    height: auto;
+    z-index: 10;
+    pointer-events: none;
+    opacity: 0.8;
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2));
+}
+
+.toy-minicar img {
+    width: 100%;
+    transform: scaleX(-1); /* Face the car to the right */
+}
+
+.toy-minicar.drive {
+    animation: driveAcross 5s linear forwards;
+}
+
+@keyframes driveAcross {
+    0% { left: -100px; transform: rotate(0deg); }
+    10% { transform: rotate(2deg); }
+    20% { transform: rotate(-2deg); }
+    30% { transform: rotate(2deg); }
+    40% { transform: rotate(-2deg); }
+    50% { transform: rotate(2deg); }
+    60% { transform: rotate(-2deg); }
+    70% { transform: rotate(2deg); }
+    80% { transform: rotate(-2deg); }
+    90% { transform: rotate(2deg); }
+    100% { left: 110vw; transform: rotate(0deg); }
+}
+
 .animated-sketch-lines {
     position: fixed;
     top: 0;

@@ -33,6 +33,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Minicar animation interval (every 2 minutes)
+    const minicar = document.getElementById('minicar');
+    const triggerMinicar = () => {
+        minicar.classList.add('drive');
+        setTimeout(() => {
+            minicar.classList.remove('drive');
+        }, 6000); // Remove class after animation finishes
+    };
+
+    // Trigger every 120 seconds
+    setInterval(triggerMinicar, 120000);
+    
+    // Initial trigger after 5 seconds to show it to the user
+    setTimeout(triggerMinicar, 5000);
+
     // Smooth scroll for nav links
     document.querySelectorAll('nav a').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
