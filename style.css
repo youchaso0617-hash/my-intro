@@ -449,14 +449,14 @@ h1 span {
 }
 
 .hobby-gaming:hover .bg-video {
-    opacity: 0.7;
+    opacity: 1; /* Full opacity */
 }
 
 .hobby-gaming:hover {
     transform: translateY(-10px);
     border-color: var(--accent-color);
-    background: #000 !important; /* Ensure black background doesn't hide video */
-    color: white;
+    background: transparent !important; /* Remove black background */
+    color: var(--text-color); /* Revert text color for visibility */
 }
 
 .hobby-gaming:hover p {
