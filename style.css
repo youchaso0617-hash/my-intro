@@ -49,37 +49,36 @@ body {
     letter-spacing: 5px;
 }
 
+#tire-tracks {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
 .toy-minicar {
     position: fixed;
-    top: 40%; /* Positioned on the background grid */
-    left: -120px;
-    width: 100px;
+    top: -100px; /* Initial off-screen position */
+    left: -100px;
+    width: 60px; /* Smaller for better following */
     height: auto;
     z-index: -1;
     pointer-events: none;
-    opacity: 0.8;
+    opacity: 0.9;
+    will-change: transform;
 }
 
 .minicar-svg {
     width: 100%;
-    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3));
+    filter: drop-shadow(0 8px 12px rgba(0,0,0,0.2));
 }
 
 .car-body { fill: var(--text-color); }
 .car-glass { fill: rgba(255,255,255,0.2); }
 .wheel { fill: #000; }
-
-.toy-minicar.drive {
-    animation: driveAcrossTopDown 10s ease-in-out forwards;
-}
-
-@keyframes driveAcrossTopDown {
-    0% { left: -120px; transform: rotate(0deg); }
-    30% { transform: rotate(2deg); top: 38%; }
-    50% { transform: rotate(-2deg); top: 42%; }
-    70% { transform: rotate(3deg); top: 39%; }
-    100% { left: 120vw; transform: rotate(0deg); }
-}
 
 .animated-sketch-lines {
     position: fixed;
