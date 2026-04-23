@@ -74,8 +74,10 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     // Select random car on load
-    const selectedCar = carTypes[Math.floor(Math.random() * carTypes.length)];
-    carContainer.innerHTML = selectedCar.svg;
+    if (carContainer) {
+        const selectedCar = carTypes[Math.floor(Math.random() * carTypes.length)];
+        carContainer.innerHTML = selectedCar.svg;
+    }
 
     let mouseX = -100, mouseY = -100;
     let carX = -100, carY = -100;
@@ -83,8 +85,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let lastX = -100, lastY = -100;
 
     const resizeCanvas = () => {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        if (canvas) {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
     };
     window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
@@ -95,29 +99,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const animate = () => {
-        // Slower Easing (from 0.05 to 0.02)
         const dx = mouseX - carX;
         const dy = mouseY - carY;
         const distance = Math.sqrt(dx * dx + dy * dy);
 
-        if (distance > 1) {
-            carX += dx * 0.02; // Slower response
-            carY += dy * 0.02; // Slower response
+        if (distance > 1 && carContainer) {
+            carX += dx * 0.02;
+            carY += dy * 0.02;
 
             const targetAngle = Math.atan2(dy, dx);
             let diff = targetAngle - angle;
             while (diff < -Math.PI) diff += Math.PI * 2;
             while (diff > Math.PI) diff -= Math.PI * 2;
-            angle += diff * 0.04; // Slower rotation (from 0.1 to 0.04)
+            angle += diff * 0.04;
 
             carContainer.style.left = `${carX}px`;
             carContainer.style.top = `${carY}px`;
             carContainer.style.transform = `translate(-50%, -50%) rotate(${angle}rad)`;
 
-            if (lastX !== -100) {
-                // Thicker and Darker Tracks
-                ctx.strokeStyle = 'rgba(0, 0, 0, 0.15)'; // Darker (from 0.05 to 0.15)
-                ctx.lineWidth = 2.5; // Thicker (from 1 to 2.5)
+            if (lastX !== -100 && ctx) {
+                ctx.strokeStyle = 'rgba(0, 0, 0, 0.15)';
+                ctx.lineWidth = 2.5;
                 ctx.beginPath();
                 
                 const trackOffset = 15;
@@ -143,8 +145,10 @@ document.addEventListener('DOMContentLoaded', () => {
             lastY = carY;
         }
 
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.02)'; // Faster fade (from 0.003 to 0.02)
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        if (ctx && canvas) {
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.02)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
 
         requestAnimationFrame(animate);
     };
@@ -162,4 +166,5 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
         });
+    });
 });
