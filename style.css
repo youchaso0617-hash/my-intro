@@ -51,34 +51,34 @@ body {
 
 .toy-minicar {
     position: fixed;
-    bottom: 15%; /* Adjusted position */
-    left: -100px;
-    width: 80px;
+    top: 40%; /* Positioned on the background grid */
+    left: -120px;
+    width: 100px;
     height: auto;
-    z-index: -1; /* Behind content */
+    z-index: -1;
     pointer-events: none;
-    opacity: 0.6;
-    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
+    opacity: 0.8;
 }
 
-.toy-minicar img {
+.minicar-svg {
     width: 100%;
-    transform: scaleX(-1);
-    animation: toyVibration 0.1s infinite alternate; /* Physical toy vibration */
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3));
 }
 
-@keyframes toyVibration {
-    from { transform: scaleX(-1) translateY(0); }
-    to { transform: scaleX(-1) translateY(-2px); }
-}
+.car-body { fill: var(--text-color); }
+.car-glass { fill: rgba(255,255,255,0.2); }
+.wheel { fill: #000; }
 
 .toy-minicar.drive {
-    animation: driveAcross 8s linear forwards; /* Slower, more realistic speed */
+    animation: driveAcrossTopDown 10s ease-in-out forwards;
 }
 
-@keyframes driveAcross {
-    0% { left: -100px; }
-    100% { left: 110vw; }
+@keyframes driveAcrossTopDown {
+    0% { left: -120px; transform: rotate(0deg); }
+    30% { transform: rotate(2deg); top: 38%; }
+    50% { transform: rotate(-2deg); top: 42%; }
+    70% { transform: rotate(3deg); top: 39%; }
+    100% { left: 120vw; transform: rotate(0deg); }
 }
 
 .animated-sketch-lines {

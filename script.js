@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         minicar.classList.add('drive');
         setTimeout(() => {
             minicar.classList.remove('drive');
-        }, 6000); // Remove class after animation finishes
+        }, 11000); // Wait for 10s animation + buffer
     };
 
     // Trigger every 120 seconds
