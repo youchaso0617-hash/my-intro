@@ -49,6 +49,47 @@ body {
     letter-spacing: 5px;
 }
 
+.animated-sketch-lines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.3;
+}
+
+.animated-sketch-lines svg {
+    width: 100%;
+    height: 100%;
+}
+
+.sketch-path {
+    fill: none;
+    stroke: var(--accent-color);
+    stroke-width: 1;
+    stroke-linecap: round;
+    stroke-dasharray: 1200;
+    stroke-dashoffset: 1200;
+    animation: drawLine 8s infinite ease-in-out;
+}
+
+.sketch-path.p1 { animation-delay: 0s; }
+.sketch-path.p2 { animation-delay: 2s; stroke: var(--secondary-accent); }
+.sketch-path.p3 { animation-delay: 4s; }
+.sketch-path.p4 { animation-delay: 1s; stroke-width: 0.5; }
+.sketch-path.p5 { animation-delay: 3s; stroke-width: 0.5; }
+
+@keyframes drawLine {
+    0% { stroke-dashoffset: 1200; opacity: 0; }
+    10% { opacity: 1; }
+    40% { stroke-dashoffset: 0; }
+    60% { stroke-dashoffset: 0; opacity: 1; }
+    90% { opacity: 0; }
+    100% { stroke-dashoffset: -1200; opacity: 0; }
+}
+
 .technical-overlay .line {
     position: fixed;
     background: var(--grid-color);
