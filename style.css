@@ -50,14 +50,14 @@ body {
 }
 
 .animated-sketch-lines {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     pointer-events: none;
     z-index: -1;
-    opacity: 0.12;
+    opacity: 0.15;
 }
 
 .animated-sketch-lines svg {
@@ -68,33 +68,28 @@ body {
 
 .sketch-path {
     fill: none;
-    stroke: #444;
-    stroke-width: 1.5;
+    stroke: #333;
+    stroke-width: 1.2;
     stroke-linecap: round;
     stroke-linejoin: round;
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
+    stroke-dasharray: 2000;
+    stroke-dashoffset: 2000;
+    animation: pencilDraw 10s infinite ease-in-out;
 }
 
-/* Staggered Animations for different products */
-.sketch-group.car .sketch-path { animation: pencilDraw 15s infinite ease-in-out; }
-.sketch-group.bike .sketch-path { animation: pencilDraw 18s infinite ease-in-out; }
-.sketch-group.dryer .sketch-path { animation: pencilDraw 20s infinite ease-in-out; }
-.sketch-group.iqos .sketch-path { animation: pencilDraw 12s infinite ease-in-out; }
-
-/* Individual path delays within groups */
 .sketch-path.p1 { animation-delay: 0s; }
 .sketch-path.p2 { animation-delay: 2s; }
 .sketch-path.p3 { animation-delay: 4s; }
-.sketch-path.p4 { animation-delay: 5s; }
+.sketch-path.p4 { animation-delay: 1s; }
+.sketch-path.p5 { animation-delay: 3s; }
 
 @keyframes pencilDraw {
-    0% { stroke-dashoffset: 1000; opacity: 0; }
-    5% { opacity: 1; }
-    30% { stroke-dashoffset: 0; }
-    70% { stroke-dashoffset: 0; opacity: 1; }
+    0% { stroke-dashoffset: 2000; opacity: 0; }
+    10% { opacity: 0.8; }
+    40% { stroke-dashoffset: 0; }
+    60% { stroke-dashoffset: 0; opacity: 0.8; }
     90% { opacity: 0; }
-    100% { stroke-dashoffset: -1000; opacity: 0; }
+    100% { stroke-dashoffset: -2000; opacity: 0; }
 }
 
 .technical-overlay .line {
