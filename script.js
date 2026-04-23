@@ -163,4 +163,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Gaming video hover control
+    const gamingCard = document.querySelector('.hobby-gaming');
+    const bgVideo = gamingCard?.querySelector('video');
+    if (gamingCard && bgVideo) {
+        gamingCard.addEventListener('mouseenter', () => {
+            bgVideo.play().catch(e => console.log("Playback failed:", e));
+        });
+        gamingCard.addEventListener('mouseleave', () => {
+            bgVideo.pause();
+            bgVideo.currentTime = 0;
+        });
+    }
 });

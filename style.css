@@ -454,6 +454,7 @@ h1 span {
     opacity: 0;
     transition: opacity 0.5s ease;
     z-index: 0;
+    pointer-events: none;
 }
 
 .background-video video {
@@ -462,15 +463,27 @@ h1 span {
     object-fit: cover;
 }
 
+/* Dark overlay inside video container */
+.background-video::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+    z-index: 1;
+}
+
 .hobby-gaming:hover .background-video {
-    opacity: 0.4;
+    opacity: 1; /* Full opacity for the container */
 }
 
 .hobby-gaming:hover {
     transform: translateY(-10px);
     border-color: var(--accent-color);
-    background: rgba(0,0,0,0.8);
-    color: white; /* Contrast on dark bg */
+    background: #000; /* Solid black base */
+    color: white;
 }
 
 .hobby-gaming:hover p {
